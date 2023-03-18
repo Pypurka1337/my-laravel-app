@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 use Illuminate\Support\Carbon;
 
@@ -52,9 +52,9 @@ class TodoItem extends Model
         return $this;
     }
 
-    public function todo_list(): HasMany
+    public function todo_list(): belongsTo
     {
-        return $this->hasMany(TodoList::class);
+        return $this->belongsTo(TodoList::class);
     }
 
     public function user(): HasOneThrough

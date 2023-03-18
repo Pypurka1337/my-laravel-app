@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use Laravel\Jetstream\Features;
 
+/**
+ * @extends Factory<User>
+ */
 class UserFactory extends Factory
 {
     /**
@@ -54,7 +57,7 @@ class UserFactory extends Factory
      */
     public function withPersonalTeam(): static
     {
-        if (! Features::hasTeamFeatures()) {
+        if (!Features::hasTeamFeatures()) {
             return $this->state([]);
         }
 

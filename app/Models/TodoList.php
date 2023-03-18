@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 
@@ -35,9 +36,9 @@ class TodoList extends Model
         'user' => 'object',
     ];
 
-    public function todo_items(): BelongsTo
+    public function todo_items(): hasMany
     {
-        return $this->belongsTo(TodoItem::class);
+        return $this->hasMany(TodoItem::class);
     }
 
     public function user(): BelongsTo
